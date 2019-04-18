@@ -36,10 +36,16 @@ import (
 )
 
 const (
-	backupTimeFormat = "2006-01-02T15-04-05.000"
-	compressSuffix   = ".gz"
-	defaultMaxSize   = 100
+	compressSuffix = ".gz"
+	defaultMaxSize = 100
 )
+
+var backupTimeFormat = "2006-01-02T15-04-05.000"
+
+// SetBackupTimeFormat set backup time format
+func SetBackupTimeFormat(s string) {
+	backupTimeFormat = s
+}
 
 // ensure we always implement io.WriteCloser
 var _ io.WriteCloser = (*Logger)(nil)
